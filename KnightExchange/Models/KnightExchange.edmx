@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KnightExchangeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="authority">
+          <Key>
+            <PropertyRef Name="auth_level" />
+          </Key>
+          <Property Name="auth_level" Type="int" Nullable="false" />
+          <Property Name="auth_type" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="books">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_number" Type="int" Nullable="false" />
+          <Property Name="crn" Type="varchar" MaxLength="50" />
+          <Property Name="isbn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="edition" Type="varchar" MaxLength="50" />
+          <Property Name="author" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="courses">
+          <Key>
+            <PropertyRef Name="crn" />
+          </Key>
+          <Property Name="crn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="course_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="course_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="instructor_lname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="services">
+          <Key>
+            <PropertyRef Name="service_number" />
+          </Key>
+          <Property Name="service_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_number" Type="int" Nullable="false" />
+          <Property Name="service_name" Type="varchar" MaxLength="50" />
+          <Property Name="service_description" Type="varchar" MaxLength="255" />
+          <Property Name="trade_for" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="supplies">
+          <Key>
+            <PropertyRef Name="supply_id" />
+          </Key>
+          <Property Name="supply_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_number" Type="int" Nullable="false" />
+          <Property Name="crn" Type="varchar" MaxLength="50" />
+          <Property Name="make" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_number" />
+          </Key>
+          <Property Name="user_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_fname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_lname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_email" Type="varchar" MaxLength="50" />
+          <Property Name="user_phone" Type="varchar" MaxLength="50" />
+          <Property Name="user_level" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_pswd" Type="varchar" MaxLength="50" />
+          <Property Name="auth_level" Type="int" Nullable="false" />
+          <Property Name="auth_desc" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_books_courses">
+          <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+          <End Role="books" Type="Self.books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="crn" />
+            </Principal>
+            <Dependent Role="books">
+              <PropertyRef Name="crn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_books_users">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="books" Type="Self.books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_number" />
+            </Principal>
+            <Dependent Role="books">
+              <PropertyRef Name="user_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_services_users">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="services" Type="Self.services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_number" />
+            </Principal>
+            <Dependent Role="services">
+              <PropertyRef Name="user_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_supplies_supplies">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="supplies" Type="Self.supplies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_number" />
+            </Principal>
+            <Dependent Role="supplies">
+              <PropertyRef Name="user_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KnightExchangeDBModelStoreContainer">
+          <EntitySet Name="authority" EntityType="Self.authority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="services" EntityType="Self.services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="supplies" EntityType="Self.supplies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_books_courses" Association="Self.FK_books_courses">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="books" EntitySet="books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_books_users" Association="Self.FK_books_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="books" EntitySet="books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_services_users" Association="Self.FK_services_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="services" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_supplies_supplies" Association="Self.FK_supplies_supplies">
+            <End Role="users" EntitySet="users" />
+            <End Role="supplies" EntitySet="supplies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KnightExchangeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="authority">
+          <Key>
+            <PropertyRef Name="auth_level" />
+          </Key>
+          <Property Name="auth_level" Type="Int32" Nullable="false" />
+          <Property Name="auth_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="book">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_number" Type="Int32" Nullable="false" />
+          <Property Name="crn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isbn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="edition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cours" Relationship="Self.FK_books_courses" FromRole="books" ToRole="courses" />
+          <NavigationProperty Name="user" Relationship="Self.FK_books_users" FromRole="books" ToRole="users" />
+        </EntityType>
+        <EntityType Name="cours">
+          <Key>
+            <PropertyRef Name="crn" />
+          </Key>
+          <Property Name="crn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="course_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="course_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="instructor_lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="books" Relationship="Self.FK_books_courses" FromRole="courses" ToRole="books" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="service_number" />
+          </Key>
+          <Property Name="service_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_number" Type="Int32" Nullable="false" />
+          <Property Name="service_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="service_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="trade_for" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_services_users" FromRole="services" ToRole="users" />
+        </EntityType>
+        <EntityType Name="supply">
+          <Key>
+            <PropertyRef Name="supply_id" />
+          </Key>
+          <Property Name="supply_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_number" Type="Int32" Nullable="false" />
+          <Property Name="crn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_supplies_supplies" FromRole="supplies" ToRole="users" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_number" />
+          </Key>
+          <Property Name="user_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_pswd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="auth_level" Type="Int32" Nullable="false" />
+          <Property Name="auth_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="books" Relationship="Self.FK_books_users" FromRole="users" ToRole="books" />
+          <NavigationProperty Name="services" Relationship="Self.FK_services_users" FromRole="users" ToRole="services" />
+          <NavigationProperty Name="supplies" Relationship="Self.FK_supplies_supplies" FromRole="users" ToRole="supplies" />
+        </EntityType>
+        <Association Name="FK_books_courses">
+          <End Role="courses" Type="Self.cours" Multiplicity="0..1" />
+          <End Role="books" Type="Self.book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="crn" />
+            </Principal>
+            <Dependent Role="books">
+              <PropertyRef Name="crn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_books_users">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="books" Type="Self.book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_number" />
+            </Principal>
+            <Dependent Role="books">
+              <PropertyRef Name="user_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_services_users">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="services" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_number" />
+            </Principal>
+            <Dependent Role="services">
+              <PropertyRef Name="user_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_supplies_supplies">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="supplies" Type="Self.supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_number" />
+            </Principal>
+            <Dependent Role="supplies">
+              <PropertyRef Name="user_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KnightExchangeDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="authorities" EntityType="Self.authority" />
+          <EntitySet Name="books" EntityType="Self.book" />
+          <EntitySet Name="courses" EntityType="Self.cours" />
+          <EntitySet Name="services" EntityType="Self.service" />
+          <EntitySet Name="supplies" EntityType="Self.supply" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="FK_books_courses" Association="Self.FK_books_courses">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="books" EntitySet="books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_books_users" Association="Self.FK_books_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="books" EntitySet="books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_services_users" Association="Self.FK_services_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="services" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_supplies_supplies" Association="Self.FK_supplies_supplies">
+            <End Role="users" EntitySet="users" />
+            <End Role="supplies" EntitySet="supplies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KnightExchangeDBModelStoreContainer" CdmEntityContainer="KnightExchangeDBEntities">
+          <EntitySetMapping Name="authorities">
+            <EntityTypeMapping TypeName="KnightExchangeDBModel.authority">
+              <MappingFragment StoreEntitySet="authority">
+                <ScalarProperty Name="auth_level" ColumnName="auth_level" />
+                <ScalarProperty Name="auth_type" ColumnName="auth_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="books">
+            <EntityTypeMapping TypeName="KnightExchangeDBModel.book">
+              <MappingFragment StoreEntitySet="books">
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="user_number" ColumnName="user_number" />
+                <ScalarProperty Name="crn" ColumnName="crn" />
+                <ScalarProperty Name="isbn" ColumnName="isbn" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="edition" ColumnName="edition" />
+                <ScalarProperty Name="author" ColumnName="author" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courses">
+            <EntityTypeMapping TypeName="KnightExchangeDBModel.cours">
+              <MappingFragment StoreEntitySet="courses">
+                <ScalarProperty Name="crn" ColumnName="crn" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="course_name" ColumnName="course_name" />
+                <ScalarProperty Name="instructor_lname" ColumnName="instructor_lname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="KnightExchangeDBModel.service">
+              <MappingFragment StoreEntitySet="services">
+                <ScalarProperty Name="service_number" ColumnName="service_number" />
+                <ScalarProperty Name="user_number" ColumnName="user_number" />
+                <ScalarProperty Name="service_name" ColumnName="service_name" />
+                <ScalarProperty Name="service_description" ColumnName="service_description" />
+                <ScalarProperty Name="trade_for" ColumnName="trade_for" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="supplies">
+            <EntityTypeMapping TypeName="KnightExchangeDBModel.supply">
+              <MappingFragment StoreEntitySet="supplies">
+                <ScalarProperty Name="supply_id" ColumnName="supply_id" />
+                <ScalarProperty Name="user_number" ColumnName="user_number" />
+                <ScalarProperty Name="crn" ColumnName="crn" />
+                <ScalarProperty Name="make" ColumnName="make" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="KnightExchangeDBModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_number" ColumnName="user_number" />
+                <ScalarProperty Name="user_fname" ColumnName="user_fname" />
+                <ScalarProperty Name="user_lname" ColumnName="user_lname" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+                <ScalarProperty Name="user_level" ColumnName="user_level" />
+                <ScalarProperty Name="user_pswd" ColumnName="user_pswd" />
+                <ScalarProperty Name="auth_level" ColumnName="auth_level" />
+                <ScalarProperty Name="auth_desc" ColumnName="auth_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
