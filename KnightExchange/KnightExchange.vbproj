@@ -106,7 +106,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -207,6 +207,10 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="Controllers\AccountController.vb" />
+    <Compile Include="Controllers\bookController.vb" />
+    <Compile Include="Controllers\courseController.vb" />
+    <Compile Include="Controllers\servicesController.vb" />
+    <Compile Include="Controllers\suppliesController.vb" />
     <Compile Include="Controllers\userController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -346,6 +350,26 @@
     <Content Include="Views\user\Details.vbhtml" />
     <Content Include="Views\user\Edit.vbhtml" />
     <Content Include="Views\user\Index.vbhtml" />
+    <Content Include="Views\book\Create.vbhtml" />
+    <Content Include="Views\book\Delete.vbhtml" />
+    <Content Include="Views\book\Details.vbhtml" />
+    <Content Include="Views\book\Edit.vbhtml" />
+    <Content Include="Views\book\Index.vbhtml" />
+    <Content Include="Views\course\Create.vbhtml" />
+    <Content Include="Views\course\Delete.vbhtml" />
+    <Content Include="Views\course\Details.vbhtml" />
+    <Content Include="Views\course\Edit.vbhtml" />
+    <Content Include="Views\course\Index.vbhtml" />
+    <Content Include="Views\services\Create.vbhtml" />
+    <Content Include="Views\services\Delete.vbhtml" />
+    <Content Include="Views\services\Details.vbhtml" />
+    <Content Include="Views\services\Edit.vbhtml" />
+    <Content Include="Views\services\Index.vbhtml" />
+    <Content Include="Views\supplies\Create.vbhtml" />
+    <Content Include="Views\supplies\Delete.vbhtml" />
+    <Content Include="Views\supplies\Details.vbhtml" />
+    <Content Include="Views\supplies\Edit.vbhtml" />
+    <Content Include="Views\supplies\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
