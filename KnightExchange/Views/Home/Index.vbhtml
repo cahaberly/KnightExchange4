@@ -4,7 +4,7 @@ End Code
 
 <div class="jumbotron">
     <h1>Knight Exchange</h1>
-    <p class="lead">Welcome to the Knight Exchange!
+    <p class="lead">Welcome to the Knight Exchange!!
 Your place to trade books, supplies and find tutoring</p>
     <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 </div>
