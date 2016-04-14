@@ -4592,7 +4592,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: #37236A; /*SETS COLOR FOR BACKGROUND OF THE TOP NAVBAR*/
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
@@ -4962,17 +4962,21 @@ a.badge:focus {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  color: inherit;
-  background-color: #eee;
-}
+  color: #37236A;/*color: inherit;*//*Changes from Cara's file*/
+  font-family: 'Copperplate Gothic';
+  font-weight:400;
+  background-color: #9A82D6;
+  display:flex;
+ }
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
 }
 .jumbotron p {
   margin-bottom: 15px;
+  margin-top: 60px;
   font-size: 21px;
-  font-weight: 200;
+  font-weight: 300;
 }
 .jumbotron > hr {
   border-top-color: #d5d5d5;
@@ -5000,6 +5004,10 @@ a.badge:focus {
   .jumbotron .h1 {
     font-size: 63px;
   }
+  .jumbotron img{
+       width: 40%;
+       height: 40%;
+   }
 }
 .thumbnail {
   display: block;

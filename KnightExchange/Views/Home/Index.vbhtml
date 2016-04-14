@@ -1,23 +1,26 @@
 ﻿@Code
-    ViewData("Title") = "Home Page"
+    ViewData("Title") = "KnightExchange"
 End Code
 
 <div class="jumbotron">
     <h1>Knight Exchange</h1>
+    <div style="float:left;"><img src="~/Images/KnightExchangeLogo.png" style="width: 300px; height: 248px;" /></div>
     <p class="lead">Welcome to the Knight Exchange!!
 Your place to trade books, supplies and find tutoring</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Interested in joining the exchange? Click here to find out more.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>
+            <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("Contact", "Home")'">
+            Contact Us &raquo;
+            </button>
+        </p>
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>

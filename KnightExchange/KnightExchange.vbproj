@@ -24,6 +24,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -298,6 +299,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KnightExchange.Designer.vb</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\KnightExchangeLogo.png" />
     <Content Include="Models\KnightExchange.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KnightExchange.edmx</DependentUpon>

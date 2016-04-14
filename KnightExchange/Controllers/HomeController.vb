@@ -6,7 +6,7 @@
     End Function
 
     Function About() As ActionResult
-        ViewData("Message") = "Your application description page."
+        ViewData("Message") = "Recycle, Reuse and Save."
 
         Return View()
     End Function
