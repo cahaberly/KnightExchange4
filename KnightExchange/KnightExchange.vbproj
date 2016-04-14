@@ -369,6 +369,7 @@
     <Content Include="Views\product_info\Details.vbhtml" />
     <Content Include="Views\product_info\Edit.vbhtml" />
     <Content Include="Views\product_info\Index.vbhtml" />
+    <Content Include="Views\ViewBooks.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
