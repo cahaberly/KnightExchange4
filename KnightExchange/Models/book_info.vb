@@ -10,12 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class book
-    Public Property book_id As Integer
-    Public Property user_id As Integer
+Partial Public Class book_info
     Public Property bookinfo_id As Integer
+    Public Property book_title As String
+    Public Property book_edition As String
+    Public Property book_isbn As String
+    Public Property book_author As String
 
-    Public Overridable Property book_info As book_info
-    Public Overridable Property user As user
+    Public Overridable Property books As ICollection(Of book) = New HashSet(Of book)
 
 End Class

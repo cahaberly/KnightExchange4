@@ -10,12 +10,11 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class book
-    Public Property book_id As Integer
-    Public Property user_id As Integer
-    Public Property bookinfo_id As Integer
+Partial Public Class product_info
+    Public Property productinfo_id As Integer
+    Public Property product_name As String
+    Public Property product_description As String
 
-    Public Overridable Property book_info As book_info
-    Public Overridable Property user As user
+    Public Overridable Property products As ICollection(Of product) = New HashSet(Of product)
 
 End Class

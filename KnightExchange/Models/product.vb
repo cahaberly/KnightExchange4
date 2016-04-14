@@ -10,12 +10,12 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class book
-    Public Property book_id As Integer
+Partial Public Class product
+    Public Property product_id As Integer
     Public Property user_id As Integer
-    Public Property bookinfo_id As Integer
+    Public Property productinfo_id As Integer
 
-    Public Overridable Property book_info As book_info
+    Public Overridable Property product_info As product_info
     Public Overridable Property user As user
 
 End Class

@@ -11,18 +11,13 @@ Imports System
 Imports System.Collections.Generic
 
 Partial Public Class user
-    Public Property user_number As Integer
-    Public Property user_fname As String
+    Public Property user_id As Integer
     Public Property user_lname As String
+    Public Property user_fname As String
     Public Property user_email As String
-    Public Property user_phone As String
-    Public Property user_level As String
-    Public Property user_pswd As String
-    Public Property auth_level As Integer
-    Public Property auth_desc As String
+    Public Property user_permission As String
 
     Public Overridable Property books As ICollection(Of book) = New HashSet(Of book)
-    Public Overridable Property services As ICollection(Of service) = New HashSet(Of service)
-    Public Overridable Property supplies As ICollection(Of supply) = New HashSet(Of supply)
+    Public Overridable Property products As ICollection(Of product) = New HashSet(Of product)
 
 End Class

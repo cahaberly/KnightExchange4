@@ -208,48 +208,45 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="Controllers\AccountController.vb" />
-    <Compile Include="Controllers\bookController.vb" />
-    <Compile Include="Controllers\courseController.vb" />
-    <Compile Include="Controllers\servicesController.vb" />
-    <Compile Include="Controllers\suppliesController.vb" />
-    <Compile Include="Controllers\userController.vb" />
+    <Compile Include="Controllers\booksController.vb" />
+    <Compile Include="Controllers\book_infoController.vb" />
+    <Compile Include="Controllers\productsController.vb" />
+    <Compile Include="Controllers\product_infoController.vb" />
+    <Compile Include="Controllers\usersController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.vb" />
-    <Compile Include="Models\authority.vb">
-      <DependentUpon>KnightExchange.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\book.vb">
-      <DependentUpon>KnightExchange.tt</DependentUpon>
+      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\cours.vb">
-      <DependentUpon>KnightExchange.tt</DependentUpon>
+    <Compile Include="Models\book_info.vb">
+      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.vb" />
-    <Compile Include="Models\KnightExchange.Context.vb">
+    <Compile Include="Models\KnightExchange_Model.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KnightExchange.Context.tt</DependentUpon>
+      <DependentUpon>KnightExchange_Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\KnightExchange.Designer.vb">
+    <Compile Include="Models\KnightExchange_Model.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KnightExchange.edmx</DependentUpon>
+      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\KnightExchange.vb">
+    <Compile Include="Models\KnightExchange_Model.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KnightExchange.tt</DependentUpon>
+      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\service.vb">
-      <DependentUpon>KnightExchange.tt</DependentUpon>
+    <Compile Include="Models\product.vb">
+      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\supply.vb">
-      <DependentUpon>KnightExchange.tt</DependentUpon>
+    <Compile Include="Models\product_info.vb">
+      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.vb">
-      <DependentUpon>KnightExchange.tt</DependentUpon>
+      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -295,23 +292,13 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <EntityDeploy Include="Models\KnightExchange.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KnightExchange.Designer.vb</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Images\KnightExchangeLogo.png" />
-    <Content Include="Models\KnightExchange.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KnightExchange.edmx</DependentUpon>
-      <LastGenOutput>KnightExchange.Context.vb</LastGenOutput>
-    </Content>
-    <Content Include="Models\KnightExchange.edmx.diagram">
-      <DependentUpon>KnightExchange.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\KnightExchange.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KnightExchange.edmx</DependentUpon>
-      <LastGenOutput>KnightExchange.vb</LastGenOutput>
+    <EntityDeploy Include="Models\KnightExchange_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KnightExchange_Model.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\KnightExchange_Model.edmx.diagram">
+      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
     </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -322,6 +309,16 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <Content Include="Models\KnightExchange_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
+      <LastGenOutput>KnightExchange_Model.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Models\KnightExchange_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
+      <LastGenOutput>KnightExchange_Model.vb</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.1.js" />
@@ -347,31 +344,31 @@
     <Content Include="Views\Account\Manage.vbhtml" />
     <Content Include="Views\Account\Register.vbhtml" />
     <Content Include="Views\Shared\_LoginPartial.vbhtml" />
-    <Content Include="Views\user\Create.vbhtml" />
-    <Content Include="Views\user\Delete.vbhtml" />
-    <Content Include="Views\user\Details.vbhtml" />
-    <Content Include="Views\user\Edit.vbhtml" />
-    <Content Include="Views\user\Index.vbhtml" />
-    <Content Include="Views\book\Create.vbhtml" />
-    <Content Include="Views\book\Delete.vbhtml" />
-    <Content Include="Views\book\Details.vbhtml" />
-    <Content Include="Views\book\Edit.vbhtml" />
-    <Content Include="Views\book\Index.vbhtml" />
-    <Content Include="Views\course\Create.vbhtml" />
-    <Content Include="Views\course\Delete.vbhtml" />
-    <Content Include="Views\course\Details.vbhtml" />
-    <Content Include="Views\course\Edit.vbhtml" />
-    <Content Include="Views\course\Index.vbhtml" />
-    <Content Include="Views\services\Create.vbhtml" />
-    <Content Include="Views\services\Delete.vbhtml" />
-    <Content Include="Views\services\Details.vbhtml" />
-    <Content Include="Views\services\Edit.vbhtml" />
-    <Content Include="Views\services\Index.vbhtml" />
-    <Content Include="Views\supplies\Create.vbhtml" />
-    <Content Include="Views\supplies\Delete.vbhtml" />
-    <Content Include="Views\supplies\Details.vbhtml" />
-    <Content Include="Views\supplies\Edit.vbhtml" />
-    <Content Include="Views\supplies\Index.vbhtml" />
+    <Content Include="Views\books\Create.vbhtml" />
+    <Content Include="Views\books\Delete.vbhtml" />
+    <Content Include="Views\books\Details.vbhtml" />
+    <Content Include="Views\books\Edit.vbhtml" />
+    <Content Include="Views\books\Index.vbhtml" />
+    <Content Include="Views\users\Create.vbhtml" />
+    <Content Include="Views\users\Delete.vbhtml" />
+    <Content Include="Views\users\Details.vbhtml" />
+    <Content Include="Views\users\Edit.vbhtml" />
+    <Content Include="Views\users\Index.vbhtml" />
+    <Content Include="Views\book_info\Create.vbhtml" />
+    <Content Include="Views\book_info\Delete.vbhtml" />
+    <Content Include="Views\book_info\Details.vbhtml" />
+    <Content Include="Views\book_info\Edit.vbhtml" />
+    <Content Include="Views\book_info\Index.vbhtml" />
+    <Content Include="Views\products\Create.vbhtml" />
+    <Content Include="Views\products\Delete.vbhtml" />
+    <Content Include="Views\products\Details.vbhtml" />
+    <Content Include="Views\products\Edit.vbhtml" />
+    <Content Include="Views\products\Index.vbhtml" />
+    <Content Include="Views\product_info\Create.vbhtml" />
+    <Content Include="Views\product_info\Delete.vbhtml" />
+    <Content Include="Views\product_info\Details.vbhtml" />
+    <Content Include="Views\product_info\Edit.vbhtml" />
+    <Content Include="Views\product_info\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
