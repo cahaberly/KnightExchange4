@@ -9,12 +9,25 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
 Partial Public Class book_info
     Public Property bookinfo_id As Integer
+
+    <Required>
+    <Display(Name:="Title", Description:="Title of Book")>
     Public Property book_title As String
+
+    <Required>
+    <Display(Name:="Edition")>
     Public Property book_edition As String
+
+    <Required>
+    <Display(Name:="ISBN")>
     Public Property book_isbn As String
+
+    <Required>
+    <Display(Name:="Author")>
     Public Property book_author As String
 
     Public Overridable Property books As ICollection(Of book) = New HashSet(Of book)

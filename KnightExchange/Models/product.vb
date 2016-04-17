@@ -9,9 +9,13 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
 Partial Public Class product
     Public Property product_id As Integer
+
+    <Required>
+    <Display(Name:="User ID")>
     Public Property user_id As Integer
     Public Property productinfo_id As Integer
 

@@ -9,10 +9,17 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
 Partial Public Class product_info
     Public Property productinfo_id As Integer
+
+    <Required>
+    <Display(Name:="Product Name")>
     Public Property product_name As String
+
+    <Required>
+    <Display(Name:="Description")>
     Public Property product_description As String
 
     Public Overridable Property products As ICollection(Of product) = New HashSet(Of product)

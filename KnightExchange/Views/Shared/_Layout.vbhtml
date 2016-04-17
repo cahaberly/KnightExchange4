@@ -22,12 +22,25 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Books", "Index", "books")</li>
-                    <li>@Html.ActionLink("Book Info", "Index", "book_info")</li>
-                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                    <li>@Html.ActionLink("Product Info", "Index", "product_info")</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Books<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Books Available", "Index", "books")</li>
+                           <li>@Html.ActionLink("Book Information", "Index", "book_info")</li>
+                       </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Products Available", "Index", "Products")</li>
+                            <li>@Html.ActionLink("Product Information", "Index", "product_info")</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Users", "Index", "users")</li>
                 </ul>
+              
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
