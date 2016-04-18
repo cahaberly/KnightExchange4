@@ -218,35 +218,35 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\book.vb">
-      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\book_info.vb">
-      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.vb" />
-    <Compile Include="Models\KnightExchange_Model.Context.vb">
+    <Compile Include="Models\KnightExchangeDBEntities_Model.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KnightExchange_Model.Context.tt</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\KnightExchange_Model.Designer.vb">
+    <Compile Include="Models\KnightExchangeDBEntities_Model.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\KnightExchange_Model.vb">
+    <Compile Include="Models\KnightExchangeDBEntities_Model.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\product.vb">
-      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\product_info.vb">
-      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.vb">
-      <DependentUpon>KnightExchange_Model.tt</DependentUpon>
+      <DependentUpon>KnightExchangeDBEntities_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -293,12 +293,12 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Images\KnightExchangeLogo.png" />
-    <EntityDeploy Include="Models\KnightExchange_Model.edmx">
+    <EntityDeploy Include="Models\KnightExchangeDBEntities_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KnightExchange_Model.Designer.vb</LastGenOutput>
+      <LastGenOutput>KnightExchangeDBEntities_Model.Designer.vb</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\KnightExchange_Model.edmx.diagram">
-      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
+    <Content Include="Models\KnightExchangeDBEntities_Model.edmx.diagram">
+      <DependentUpon>KnightExchangeDBEntities_Model.edmx</DependentUpon>
     </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -309,15 +309,15 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <Content Include="Models\KnightExchange_Model.Context.tt">
+    <Content Include="Models\KnightExchangeDBEntities_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
-      <LastGenOutput>KnightExchange_Model.Context.vb</LastGenOutput>
+      <DependentUpon>KnightExchangeDBEntities_Model.edmx</DependentUpon>
+      <LastGenOutput>KnightExchangeDBEntities_Model.Context.vb</LastGenOutput>
     </Content>
-    <Content Include="Models\KnightExchange_Model.tt">
+    <Content Include="Models\KnightExchangeDBEntities_Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KnightExchange_Model.edmx</DependentUpon>
-      <LastGenOutput>KnightExchange_Model.vb</LastGenOutput>
+      <DependentUpon>KnightExchangeDBEntities_Model.edmx</DependentUpon>
+      <LastGenOutput>KnightExchangeDBEntities_Model.vb</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

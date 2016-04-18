@@ -9,16 +9,10 @@
 
 Imports System
 Imports System.Collections.Generic
-Imports System.ComponentModel.DataAnnotations
 
 Partial Public Class book
     Public Property book_id As Integer
-
-    <Required>
-    <Display(Name:="User ID")>
     Public Property user_id As Integer
-
-    <Required>
     Public Property bookinfo_id As Integer
 
     Public Overridable Property book_info As book_info

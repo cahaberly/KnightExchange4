@@ -1,18 +1,11 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Data
-Imports System.Data.Entity
-Imports System.Linq
+﻿Imports System.Data.Entity
 Imports System.Net
-Imports System.Web
-Imports System.Web.Mvc
-Imports KnightExchange
 
 Namespace Controllers
     Public Class product_infoController
         Inherits System.Web.Mvc.Controller
 
-        Private db As New KnightExchangeDBEntities
+        Private db As New KnightExchangeDBEntities1
 
         ' GET: product_info
         Function Index() As ActionResult
