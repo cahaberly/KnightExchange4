@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f1e7da5057d4bb1a5ddc32a58546e70" Name="Diagram1">
+        <EntityTypeShape EntityType="KnightExchangeDBModel.book_info" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnightExchangeDBModel.book" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnightExchangeDBModel.product_info" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnightExchangeDBModel.product" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnightExchangeDBModel.user" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="KnightExchangeDBModel.FK_books_To_book_info" ManuallyRouted="false" />
+        <AssociationConnector Association="KnightExchangeDBModel.FK_books_To_users" ManuallyRouted="false" />
+        <AssociationConnector Association="KnightExchangeDBModel.FK_products_To_product_info" ManuallyRouted="false" />
+        <AssociationConnector Association="KnightExchangeDBModel.FK_products_To_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
