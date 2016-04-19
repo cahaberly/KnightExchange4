@@ -112,3 +112,4 @@ C:\Users\cbockholt\Source\Repos\KnightExchange4\KnightExchange\bin\System.Web.Ra
 C:\Users\cbockholt\Source\Repos\KnightExchange4\KnightExchange\bin\System.Web.WebPages.xml
 C:\Users\cbockholt\Source\Repos\KnightExchange4\KnightExchange\bin\System.Web.WebPages.Deployment.xml
 C:\Users\cbockholt\Source\Repos\KnightExchange4\KnightExchange\bin\System.Web.WebPages.Razor.xml
+\\TRINITY-PC\Users\Trinity\KnightExchange4\KnightExchange\obj\Debug\KnightExchange.vbprojResolveAssemblyReference.cache

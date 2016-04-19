@@ -9,10 +9,17 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
 Partial Public Class product
+
+    <Key>
     Public Property product_id As Integer
+
+    <Display(Name:="User ID")>
     Public Property user_id As Integer
+
+    <Display(Name:="Product Information ID")>
     Public Property productinfo_id As Integer
 
     Public Overridable Property product_info As product_info

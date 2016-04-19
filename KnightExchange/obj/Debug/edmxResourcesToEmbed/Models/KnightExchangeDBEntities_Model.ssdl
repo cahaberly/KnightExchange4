@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KnightExchangeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="book_info">
+    <Key>
+      <PropertyRef Name="bookinfo_id" />
+    </Key>
+    <Property Name="bookinfo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book_title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="book_edition" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="book_isbn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="book_author" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="books">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="bookinfo_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product_info">
+    <Key>
+      <PropertyRef Name="productinfo_id" />
+    </Key>
+    <Property Name="productinfo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_description" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="productinfo_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_lname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_fname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_permission" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_books_To_book_info">
+    <End Role="book_info" Type="Self.book_info" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book_info">
+        <PropertyRef Name="bookinfo_id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="bookinfo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_books_To_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_To_product_info">
+    <End Role="product_info" Type="Self.product_info" Multiplicity="1" />
+    <End Role="products" Type="Self.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_info">
+        <PropertyRef Name="productinfo_id" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="productinfo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_To_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="products" Type="Self.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KnightExchangeDBModelStoreContainer">
+    <EntitySet Name="book_info" EntityType="Self.book_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product_info" EntityType="Self.product_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_books_To_book_info" Association="Self.FK_books_To_book_info">
+      <End Role="book_info" EntitySet="book_info" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_books_To_users" Association="Self.FK_books_To_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_To_product_info" Association="Self.FK_products_To_product_info">
+      <End Role="product_info" EntitySet="product_info" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_To_users" Association="Self.FK_products_To_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

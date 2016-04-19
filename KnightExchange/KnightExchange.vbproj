@@ -216,6 +216,7 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\book.vb">
       <DependentUpon>KnightExchangeDBEntities_Model.tt</DependentUpon>
@@ -370,6 +371,7 @@
     <Content Include="Views\product_info\Edit.vbhtml" />
     <Content Include="Views\product_info\Index.vbhtml" />
     <Content Include="Views\ViewBooks.vbhtml" />
+    <Content Include="Views\KnightExchange\books.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

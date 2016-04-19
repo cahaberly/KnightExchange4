@@ -7,15 +7,26 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-Imports System
-Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
+
+
 
 Partial Public Class book
-    Public Property book_id As Integer
-    Public Property user_id As Integer
-    Public Property bookinfo_id As Integer
 
-    Public Overridable Property book_info As book_info
-    Public Overridable Property user As user
+        <Key>
+        <Required>
+        <Display(Name:="Book ID")>
+        Public Property book_id As Integer
 
-End Class
+        <Required>
+        <Display(Name:="User ID")>
+        Public Property user_id As Integer
+
+        <Required>
+        <Display(Name:="Book Information ID")>
+        Public Property bookinfo_id As Integer
+
+        Public Overridable Property book_info As book_info
+        Public Overridable Property user As user
+
+    End Class

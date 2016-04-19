@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KnightExchangeDBModelStoreContainer" CdmEntityContainer="KnightExchangeDBEntities1">
+    <EntitySetMapping Name="book_info">
+      <EntityTypeMapping TypeName="KnightExchangeDBModel.book_info">
+        <MappingFragment StoreEntitySet="book_info">
+          <ScalarProperty Name="bookinfo_id" ColumnName="bookinfo_id" />
+          <ScalarProperty Name="book_title" ColumnName="book_title" />
+          <ScalarProperty Name="book_edition" ColumnName="book_edition" />
+          <ScalarProperty Name="book_isbn" ColumnName="book_isbn" />
+          <ScalarProperty Name="book_author" ColumnName="book_author" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="books">
+      <EntityTypeMapping TypeName="KnightExchangeDBModel.book">
+        <MappingFragment StoreEntitySet="books">
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="bookinfo_id" ColumnName="bookinfo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_info">
+      <EntityTypeMapping TypeName="KnightExchangeDBModel.product_info">
+        <MappingFragment StoreEntitySet="product_info">
+          <ScalarProperty Name="productinfo_id" ColumnName="productinfo_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_description" ColumnName="product_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="KnightExchangeDBModel.product">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="productinfo_id" ColumnName="productinfo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="KnightExchangeDBModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_lname" ColumnName="user_lname" />
+          <ScalarProperty Name="user_fname" ColumnName="user_fname" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_permission" ColumnName="user_permission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
